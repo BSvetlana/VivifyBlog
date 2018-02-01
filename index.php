@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
+    <link rel="icon" type="image/png" href="images/images.png" />
 
     <title>Vivify Blog</title>
 
@@ -28,7 +28,7 @@
         <div class="col-sm-8 blog-main">
 <?php
 
-include "single-post.php";
+//include "single-post.php";
 include "posts.php";
 ?>
 
