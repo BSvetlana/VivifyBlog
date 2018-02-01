@@ -28,7 +28,6 @@
         <div class="col-sm-8 blog-main">
 <?php
 
-//include "single-post.php";
 include "posts.php";
 ?>
 
