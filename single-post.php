@@ -81,6 +81,19 @@ include "header.php"; ?>
 
                 <p><?php echo($singlePost['body']) ?></p>
 
+                <p>Your Comment:</p>
+                <form name="myForm" action="create-coment.php" method="POST">
+
+                    <label for="name">Author</label>
+                    <input type="text" id="name" name="name">
+
+                    <label for="content">Comment</label>
+                    <textarea type="text" id="content" name="content"></textarea>
+
+                    <input type="hidden" name="post_id" value="<?php echo($post_id) ?>">
+                    <input id="inpForm" type="submit" name="submit" value="Add comment">
+                </form>
+
                 <button type="button" class="btn btn-default" id="com">Hide comments</button>
                 <?php
                 //get comment with foreign key
@@ -99,7 +112,7 @@ include "header.php"; ?>
                         <li class="li"><p><?php echo($comment['text']) ?></p></li>
                         <li class="li"><h6><i>Author by </i><?php echo($comment['author']) ?></h6></li>
                     </ul>
-                    <button type="button" class="btn btn-default" class="del">Delete</button>
+
                 <?php } ?>
 
                 <hr>
