@@ -82,17 +82,24 @@ include "header.php"; ?>
                 <p><?php echo($singlePost['body']) ?></p>
 
                 <p>Your Comment:</p>
-                <form name="myForm" action="create-coment.php" method="POST">
+
+                <form name="myForm" action="create-coment.php" method="POST" onsubmit="return required()">
 
                     <label for="name">Author</label>
-                    <input type="text" id="name" name="name">
-
+                    <input type="text" id="name" name="name" class="inp">
+                    <div class="alert alert-danger" style="display: none">
+                        <p>Obavezno polje</p>
+                    </div>
                     <label for="content">Comment</label>
                     <textarea type="text" id="content" name="content"></textarea>
-
+                    <div class="alert alert-danger" style="display: none">
+                        <span>Obavezno polje</span>
+                    </div>
                     <input type="hidden" name="post_id" value="<?php echo($post_id) ?>">
                     <input id="inpForm" type="submit" name="submit" value="Add comment">
+
                 </form>
+
 
                 <button type="button" class="btn btn-default" id="com">Hide comments</button>
                 <?php

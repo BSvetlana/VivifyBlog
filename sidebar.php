@@ -19,7 +19,8 @@ $posts = $statement->fetchAll();
 
         foreach ($posts as $post) { ?>
 
-                <h5><a style="color: #b34848;" href="single-post.php?post_id=<?php echo($post['id']) ?>"><?php echo($post['title']) ?></a></h5>
+            <h5><a style="color: #b34848;"
+                   href="single-post.php?post_id=<?php echo($post['id']) ?>"><?php echo($post['title']) ?></a></h5>
 
 
             <?php
