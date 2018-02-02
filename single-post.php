@@ -4,6 +4,51 @@
 <link href="styles/blog.css" rel="stylesheet">
 <link rel="stylesheet" href="styles/styles.css">
 <title>Blog</title>
+<style>
+    form {
+        width: 100%;
+        margin: 0 auto 10%;
+        background-color: #f9f9f9;
+    }
+
+    input[type=text] {
+        width: 100%;
+        padding: 5px;
+        border: 1px solid #A4A4A4;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 6px;
+        margin-bottom: 5px;
+        cursor: pointer;
+    }
+
+    input[type=submit] {
+        background-color: #E6E6E6;
+        width: 23%;
+        float: left;
+        color: #2E2E2E;
+        padding: 7px 9px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-bottom: 12px;
+    }
+
+    input[type=submit]:hover {
+        background-color: #D8D8D8;
+    }
+
+    textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #A4A4A4;
+        border-radius: 4px;
+        box-sizing: border-box;
+        cursor: pointer;
+        resize: none;
+    }
+
+</style>
 <?php
 include "header.php"; ?>
 
@@ -15,8 +60,10 @@ include "header.php"; ?>
             <div class="blog-post">
                 <?php
                 include "db.php";
+                //get post with same id
                 $post_id = $_GET['post_id'];
                 $sql = "SELECT * FROM posts WHERE posts.id = '" . $post_id . "'";
+
                 $statement = $connection->prepare($sql);
 
                 $statement->execute();
@@ -27,31 +74,34 @@ include "header.php"; ?>
                 //var_dump($singlePost);
                 ?>
 
-                <h2 class="blog-post-title"><a href="single-post.php"><?php echo($singlePost['title']) ?></a></h2>
-                <p class="blog-post-meta"><?php echo($singlePost['created_at']) ?>  by <a href="#"><?php echo($singlePost['author']) ?></a></p>
+                <h2 class="blog-post-title"><a href="#"><?php echo($singlePost['title']) ?></a></h2>
+                <p class="blog-post-meta"><?php echo($singlePost['created_at']) ?> by <a
+                            style="color: #5bc0de; text-decoration: none"
+                            href="#"><?php echo($singlePost['author']) ?></a></p>
 
                 <p><?php echo($singlePost['body']) ?></p>
-                <button type="button" class="btn btn-default" id="com" >Hide comments</button>
+
+                <button type="button" class="btn btn-default" id="com">Hide comments</button>
                 <?php
+                //get comment with foreign key
                 $com_id = $_GET['post_id'];
-                $sql = "SELECT * FROM comments INNER JOIN posts ON comments.post_id = posts.id WHERE comments.post_id = ".$com_id;
+                $sql = "SELECT * FROM comments WHERE comments.post_id = " . $com_id;
 
                 $com = $connection->prepare($sql);
-                $com->execute();
+               $com->execute();
                 $com->setFetchMode(PDO::FETCH_ASSOC);
                 $comments = $com->fetchAll();
 
-
                 foreach ($comments as $comment) { ?>
 
-
-                    <ul class="list">
+                    <ul class="list" style="list-style-type: none;">
                         <hr>
-                        <li><p><h6><i>Comment: </i></h6><?php echo($comment['text']) ?></p></li>
-                        <li><h6><i>Author by </i><?php echo($comment['author']) ?></h6></li>
+                        <li class="li"><p><?php echo($comment['text']) ?></p></li>
+                        <li class="li"><h6><i>Author by </i><?php echo($comment['author']) ?></h6></li>
                     </ul>
-
+                    <button type="button" class="btn btn-default" class="del">Delete</button>
                 <?php } ?>
+
                 <hr>
             </div><!-- /.blog-post -->
             <nav class="blog-pagination">
@@ -63,5 +113,5 @@ include "header.php"; ?>
     </div><!-- /.blog-main -->
 
 </main><!-- /.container -->
-<script type="text/javascript" src="js/script.js" ></script>
+<script type="text/javascript" src="js/script.js"></script>
 

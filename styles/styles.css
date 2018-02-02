@@ -5,7 +5,8 @@ html {
     background-color: #b34848;
 }
 
-h1,h2,h3,h4 {
+
+h1,h2,h3,h4,h6 {
     color: #b34848;
 }
 
@@ -28,3 +29,11 @@ h3:hover{
 h4:hover{
     text-decoration: underline;
 }
+#head > a{
+    color: #b34848;
+}
+.error {
+    color: red;
+}
+
+
