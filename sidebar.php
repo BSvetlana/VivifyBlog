@@ -1,7 +1,7 @@
 <?php
 include "db.php";
 
-$sql = "SELECT * FROM posts ORDER BY created_at DESC";
+$sql = "SELECT * FROM posts ORDER BY created_at DESC LIMIT 5";
 $statement = $connection->prepare($sql);
 
 $statement->execute();

@@ -1,4 +1,4 @@
-
+<link rel="stylesheet" href="styles/styles.css">
 <header>
     <div class="blog-masthead">
         <div class="container">

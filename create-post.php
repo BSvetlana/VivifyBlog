@@ -55,7 +55,7 @@
         cursor: pointer;
     }
 
-    input[type=date]{
+    input[type=datetime-local]{
         width: 100%;
         padding: 12px;
         border: 1px solid #5bc0de;
@@ -110,7 +110,7 @@
         <input type="text" id="author" name="author">
 
         <label for="date">Created At</label>
-        <input id="date" type="date" name="created_at">
+        <input id="datetime" type="datetime-local" name="created_at">
 
 
         <input type="submit" name="submit" value="Add Data">

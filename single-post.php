@@ -8,7 +8,6 @@
     form {
         width: 100%;
         margin: 0 auto 10%;
-        background-color: #f9f9f9;
     }
 
     input[type=text] {
@@ -31,7 +30,7 @@
         border: none;
         border-radius: 4px;
         cursor: pointer;
-        margin-bottom: 12px;
+
     }
 
     input[type=submit]:hover {

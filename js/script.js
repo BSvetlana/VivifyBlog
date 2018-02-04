@@ -7,11 +7,11 @@ var delBut = [].slice.call( del );
 button.addEventListener('click',function(){
 
     arr.forEach(function(value){
-        if(value.style.display == 'block'){
+        if(value.style.display !== 'none') {
             value.style.display = 'none';
 
             button.innerHTML = "Show comments";
-        }else {
+        } else {
             value.style.display = 'block';
 
             button.innerHTML = "Hide comments";
