@@ -116,13 +116,3 @@
         <input type="submit" name="submit" value="Add Data">
     </form>
 </div>
-<?php
-/*
-function relocate($url) {
-if ($url == -1) $url = $_SERVER['HTTP_REFERER'] ? $_SERVER['HTTP_REFERER'] : '/';
-Header("Location: $url");
-die();
-}
-
-relocate('./'); // home
-*/?>
